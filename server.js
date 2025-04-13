@@ -26,7 +26,7 @@ mongoose.connect(MONGODB_URI)
   })
   .catch((err) => {
     console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit if cannot connect to database
+    process.exit(1);
   });
 
 // Log all requests
@@ -51,10 +51,11 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Get port from environment variable or use Replit's default
 const PORT = process.env.PORT || 3000;
-const HOST = '0.0.0.0';
 
-app.listen(PORT, HOST, () => {
+// Start server
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(`API URL: http://${HOST}:${PORT}/api`);
+  console.log(`API URL: http://localhost:${PORT}/api`);
 }); 
