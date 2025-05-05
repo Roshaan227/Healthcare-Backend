@@ -53,6 +53,13 @@ app.use((err, req, res, next) => {
 
 // Get port from environment variable or use Replit's default
 const PORT = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+  res.send('Welcome to the Healthcare Clinic API');
+});
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
+
 
 // Start server
 app.listen(PORT, () => {
